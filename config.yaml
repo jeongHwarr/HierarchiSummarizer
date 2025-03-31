@@ -29,7 +29,7 @@ dir_path:
 output:
   language: english
   exclude_level:
-    - 1 # Exclude headings by level (e.g., 1 for "# Title", 2 for "## Subtitle", etc.)
+    - 0 # Exclude headings by level (e.g., 1 for "# Title", 2 for "## Subtitle", etc.)
   exclude_section: # Sections to be excluded from summarization
     - reference
     - references
