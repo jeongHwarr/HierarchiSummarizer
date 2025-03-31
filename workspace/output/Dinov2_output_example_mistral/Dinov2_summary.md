@@ -81,7 +81,7 @@
 
 - **Inspiration:** Text curation pipelines (Wenzek et al., 2020)
 - **Approach:** Uses visual similarity between images for filtering uncurated datasets without metadata, supervision, or pretrained encoders.
-- **Pipeline Overview:** ![img_3.jpeg](images\img_3.jpeg)
+- **Pipeline Overview:** ![img_3.jpeg](images/img_3.jpeg)
   - Images from curated and uncurated sources are mapped to embeddings.
   - Uncurated images are deduplicated and matched to curated images.
   - The resulting combination augments the initial dataset through a self-supervised retrieval system.
@@ -276,8 +276,8 @@
     - Trained from scratch: ViT-L/14 underperforms ViT-g/14 on all 12 benchmarks.
     - Distilled from ViT-g/14: ViT-L/14 outperforms ViT-g/14 on all benchmarks.
   - **Averaged metrics on 8 vision tasks:** Distilled ViT-L/14 outperforms both ViT-L/14 and ViT-g/14.
-  - ![img_5.jpeg](images\img_5.jpeg)
-  - ![img_6.jpeg](images\img_6.jpeg)
+  - ![img_5.jpeg](images/img_5.jpeg)
+  - ![img_6.jpeg](images/img_6.jpeg)
 
 - **Role of Resolution:**
   - **ViT-L/16 on ImageNet-1k:**
