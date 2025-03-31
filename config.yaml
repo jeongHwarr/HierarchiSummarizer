@@ -1,0 +1,49 @@
+llm_settings:
+  summary_provider: mistral # Select the summarization provider (mistral, open_ai, groq, ollama)
+  temperature: 0.3
+
+mistral:
+  model: open-mistral-nemo # https://docs.mistral.ai/getting-started/models/models_overview/
+  api_key: your_api_key # Required!
+
+open_ai:
+  model: gpt-4o # https://platform.openai.com/docs/models
+  api_key: your_api_key
+  max_tokens: 300
+
+groq:
+  model: gemma2-9b-it # https://console.groq.com/docs/models
+  api_key: your_api_key
+
+ollama:
+  model: llama3:8b
+  localhost: http://localhost:11434
+
+# Directory settings
+dir_path:
+  input_dir_path: workspace/to_process
+  output_dir_path: workspace/output
+  done_dir_path: workspace/done
+
+# Output settings
+output:
+  language: english
+  exclude_level:
+    - 1 # Exclude headings by level (e.g., 1 for "# Title", 2 for "## Subtitle", etc.)
+  exclude_section: # Sections to be excluded from summarization
+    - reference
+    - references
+  summary_style: hierarchical bullet list # hierarchical list, hierarchical numbered list, hierarchical bullet list, paragraph, ...
+  summary_level: detailed # detailed, medium, concise
+
+# Prompt customization
+prompt:
+  additional_requirements : |
+    **Sentence Structure**: Do NOT use periods at the end of sentences.
+
+  template: |
+    {section}
+  
+    Follow these requirements strictly:
+  
+    {additional_requirements}
