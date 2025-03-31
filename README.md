@@ -107,7 +107,7 @@ This section customizes the output format and language of the summary.
 - **`summary_style`**: The style of the summary. Options:
     - `hierarchical bullet list`
     - `hierarchical numbered list`
-    - `hierarchical bullet list`
+    - `bullet list`
     - `paragraph`
     - Others depending on your needs.
 - **`summary_level`**: The detail level of the summary. Options:
