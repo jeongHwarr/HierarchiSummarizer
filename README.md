@@ -1,4 +1,5 @@
 # HierarchiSummarizer
+![logo](asset/logo.png)
 
 ## Overview
 HierarchiSummarizer is a document processing tool that analyzes document hierarchy, extracts structured content, summarizes, and translates paragraphs from Markdown and PDF files. It supports multiple LLM providers and provides customizable output formats.
