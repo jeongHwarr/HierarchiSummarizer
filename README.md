@@ -37,7 +37,7 @@ mistral:
 ### How to Get a Mistral API Key
 1. Visit the [Mistral AI website](https://docs.mistral.ai/getting-started/)
 2. Sign up or log in
-3. Navigate to the API section to generate your key
+3. Navigate to the [API section](https://console.mistral.ai/api-keys ) to generate your key 
 4. Add your API key to the `config.yaml` file under `mistral.api_key`
 
 ## Usage
