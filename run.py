@@ -9,7 +9,7 @@ from modules.section_parser import SectionParser
 from modules.section_summarizer import SectionSummarizer
 
 
-def process_documents(input_folder, output_folder, done_folder, config):
+def process_all_documents(input_folder, output_folder, done_folder, config):
     os.makedirs(output_folder, exist_ok=True)
     os.makedirs(done_folder, exist_ok=True)
 
@@ -49,16 +49,6 @@ def process_document(file_path, output_folder, done_folder, config):
     shutil.move(file_path, os.path.join(done_folder, os.path.basename(file_path)))
 
 
-def process_documents(input_folder, output_folder, done_folder, config):
-    os.makedirs(output_folder, exist_ok=True)
-    os.makedirs(done_folder, exist_ok=True)
-
-    for filename in os.listdir(input_folder):
-        file_path = os.path.join(input_folder, filename)
-        if filename.endswith(".pdf") or filename.endswith(".md"):
-            process_document(file_path, output_folder, done_folder, config)
-
-
 def main():
     with open("config.yaml", "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
@@ -67,7 +57,7 @@ def main():
     output_folder = config["dir_path"]["output_dir_path"]
     done_folder = config["dir_path"]["done_dir_path"]
 
-    process_documents(input_folder, output_folder, done_folder, config)
+    process_all_documents(input_folder, output_folder, done_folder, config)
 
 
 if __name__ == "__main__":
