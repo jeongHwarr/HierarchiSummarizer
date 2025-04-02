@@ -117,7 +117,9 @@ class MistralOCRProcessor:
             for img_id, image_path in image_map.items():
                 image_name = os.path.basename(image_path)
                 image_path = Path(image_path)
-                relative_path = image_path.relative_to(image_path.parent.parent)
+                relative_path = image_path.relative_to(
+                    image_path.parent.parent
+                ).as_posix()
                 updated_markdown = updated_markdown.replace(
                     f"![{img_id}]({img_id})", f"![{image_name}]({relative_path})"
                 )
