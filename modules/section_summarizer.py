@@ -85,9 +85,16 @@ class SectionSummarizer:
 
     def summarize_section(self, section, additional_requirements):
         full_prompt = self.prompt.format(
-            section=section, additional_requirements=additional_requirements
+            section=section["content"], additional_requirements=additional_requirements
         )
         response = self.llm.get_response(full_prompt)
+
+        image_tags = "\n".join(
+            [f"![{img['id']}]({img['path']})" for img in section.get("images", [])]
+        )
+
+        if image_tags and image_tags not in response:
+            response += "\n\n" + image_tags
         return response
 
     def summarize_all_sections(self, sections):
@@ -105,7 +112,7 @@ class SectionSummarizer:
                 summarized_content = ""
             else:
                 summarized_content = self.summarize_section(
-                    section["content"], self.additional_requirements
+                    section, self.additional_requirements
                 )
 
             summarized_sections.append(

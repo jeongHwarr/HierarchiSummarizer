@@ -19,14 +19,26 @@ class SectionParser:
         for line in self.md_lines:
             if line == "\n":
                 continue
-            match = re.match(r"^(#{1,6})\s+(.*)", line)
-            if match:
+
+            header_match = re.match(r"^(#{1,6})\s+(.*)", line)
+            image_match = re.findall(r"!\[(.*?)\]\((.*?)\)", line)
+
+            if header_match:
                 if current_section["title"]:
                     sections.append(current_section)
 
-                level = len(match.group(1))
-                title = match.group(2)
-                current_section = {"title": title, "level": level, "content": ""}
+                level = len(header_match.group(1))
+                title = header_match.group(2)
+                current_section = {
+                    "title": title,
+                    "level": level,
+                    "content": "",
+                    "images": [],
+                }
+
+            elif image_match:
+                for img_id, img_path in image_match:
+                    current_section["images"].append({"id": img_id, "path": img_path})
             else:
                 current_section["content"] += line + "\n"
 
