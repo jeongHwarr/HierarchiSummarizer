@@ -101,7 +101,7 @@ class MistralOCRProcessor:
                 new_image_name = f"img_{global_counter}{ext}"
                 global_counter += 1
 
-                image_output_path = os.path.join(image_dir, new_image_name)
+                image_output_path = image_dir + "/" + new_image_name
                 with open(image_output_path, "wb") as f:
                     f.write(image_bytes)
 
